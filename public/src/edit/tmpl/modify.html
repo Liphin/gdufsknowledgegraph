@@ -1,0 +1,109 @@
+<div ng-if="edit.supportData['pageShow']['modify']" style="display: flex; flex-direction: row">
+    <!--左侧选择栏：人物、单位-->
+    <div style="width: 100px; background: #dddddd;cursor: pointer; height: 240px">
+        <div style="height: 80px;" ng-class="{'selectedItem': edit.modifyData['gdufs_teacher']['status']}" ng-click="edit.switchChoiceItem('gdufs_teacher')">
+            <span>广外领导教师</span>
+        </div>
+        <div style="height: 80px;" ng-class="{'selectedItem': edit.modifyData['visitor']['status']}" ng-click="edit.switchChoiceItem('visitor')">
+            <span>来访嘉宾</span>
+        </div>
+        <div style="height: 80px;" ng-class="{'selectedItem': edit.modifyData['visitor_dept']['status']}" ng-click="edit.switchChoiceItem('visitor_dept')">
+            <span>相关单位</span>
+        </div>
+    </div>
+
+    <!--添加知识图谱元数据用户交互界面-->
+    <div style="margin-left: 150px">
+
+        <!--外事来访者数据字段-->
+        <div ng-if="edit.modifyData['visitor']['status']">
+            <div ng-repeat="value in edit.modifyData['visitor']['data']" style="margin: 20px; border: 1px solid #dddddd; border-width:  0 0 1px 0;">
+
+                <!--状态-->
+                <div ng-click="value['extend']=!value['extend']" style="cursor: pointer">
+                    <i style="color: darkgrey;font-size: 20px;margin-right: 20px; position: relative; top: 2px" ng-class="{'fa fa-caret-down': value['extend'], 'fa fa-caret-right':!value['extend']}"></i>
+                    <span style="margin: 0 20px 0 0;">{{value['cn_name']}}</span>
+                    <i class="fa fa-square" ng-class="{'colorGreen': value['isFull'], 'colorRed':!value['isFull']}"></i>
+                </div>
+
+                <!--是否延展-->
+                <div ng-if="value['extend']">
+                    <!--profile (简介)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">profile (简介)：</span>
+                        <textarea ng-model="value['profile']" style="width: 480px; height: 100px; vertical-align: top; margin-left: 47px"/>
+                    </div>
+
+                    <!--en_name (英文名称)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">en_name (英文名称)：</span>
+                        <input ng-model="value['en_name']" style="width: 200px; vertical-align: top"/>
+                    </div>
+
+                    <!--cn_name (中文名称)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">cn_name (中文名称)：</span>
+                        <input ng-model="value['cn_name']" style="width: 200px; vertical-align: top"/>
+                    </div>
+
+                    <!--title (职务)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">title (职务)：</span>
+                        <input ng-model="value['title']" style="width: 200px; vertical-align: top; margin-left: 63px"/>
+                    </div>
+
+                    <!--提交按钮-->
+                    <button class="btn btn-success" style="margin: 20px 0 30px 0;" ng-click="edit.submitNodeData('visitor', $index, value)">提交</button>
+                </div>
+            </div>
+        </div>
+
+
+
+
+        <!--外事来访者相关部门数据字段-->
+        <div ng-if="edit.modifyData['visitor_dept']['status']">
+            <div ng-repeat="value in edit.modifyData['visitor_dept']['data']" style="margin: 20px; border: 1px solid #dddddd; border-width:  0 0 1px 0;">
+
+                <!--状态-->
+                <div ng-click="value['extend']=!value['extend']" style="cursor: pointer">
+                    <i style="color: darkgrey;font-size: 20px;margin-right: 20px; position: relative; top: 2px" ng-class="{'fa fa-caret-down': value['extend'], 'fa fa-caret-right':!value['extend']}"></i>
+                    <span style="margin: 0 20px 0 0;">{{value['cn_name']}}</span>
+                    <i class="fa fa-square" ng-class="{'colorGreen': value['isFull'], 'colorRed':!value['isFull']}"></i>
+                </div>
+
+                <!--是否延展-->
+                <div ng-if="value['extend']">
+                    <!--en_name (英文名称)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">en_name (英文名称)：</span>
+                        <input ng-model="value['en_name']" style="width: 200px;vertical-align: top"/>
+                    </div>
+
+                    <!--cn_name (中文名称)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">cn_name (中文名称)：</span>
+                        <input ng-model="value['cn_name']" style="width: 200px;vertical-align: top"/>
+                    </div>
+
+                    <!--nation (国家)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">nation (国家)：</span>
+                        <input ng-model="value['nation']" style="width: 200px; vertical-align: top; margin-left: 49px"/>
+                    </div>
+
+                    <!--introduction (简介)-->
+                    <div style="margin-top: 20px">
+                        <span style="vertical-align: top">introduction (简介)：</span>
+                        <textarea ng-model="value['introduction']" style="width: 480px; height: 100px; margin-left: 15px; vertical-align: top"/>
+                    </div>
+
+                    <!--提交按钮-->
+                    <button class="btn btn-success" style="margin: 20px 0 30px 0;" ng-click="edit.submitNodeData('visitor_dept', $index, value)">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,36 @@
+{
+  "port": 3080,
+  "bgUrl": "http://***.liphin.com:8080",
+  "mongodb": {
+    "toConnect": false,
+    "url": "mongodb://****:27017",
+    "poolSize": 10,
+    "useNewUrlParser": true
+  },
+  "mysql": {
+    "toConnect": true,
+    "connectionLimit": 10,
+    "host": "***",
+    "user": "***",
+    "password": "***",
+    "database": "***"
+  },
+  "neo4j": {
+    "toConnect": true,
+    "url": "bolt://***:7687",
+    "account": "***",
+    "password": "***"
+  },
+  "ossInit": {
+    "region": "***",
+    "accessKeyId": "***",
+    "accessKeySecret": "***",
+    "bucket": "***"
+  },
+  "base": "G:/SoftwareOutSourcing/GDUFS/knowledge/back/",
+  "https":{
+    "port":3066,
+    "key":"G:/SoftwareOutSourcing/GDUFS/knowledge/gdufs_knowledge_cert/Nginx/2_gdufsknowledge.liphin.com.key",
+    "cert":"G:/SoftwareOutSourcing/GDUFS/knowledge/gdufs_knowledge_cert/Nginx/1_gdufsknowledge.liphin.com_bundle.crt"
+  }
+}
