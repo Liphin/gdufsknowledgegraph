@@ -1,0 +1,18 @@
+
+项目运行时公开链接 http://gdufsknowledge.liphin.com:3080
+
+
+项目采用angularjs搭建前端，node.js搭建后台
+
+
+项目采用d3.js进行图数据的渲染，neo4j数据库进行数据存取操作
+
+
+项目的启动文件是server/server.js
+
+
+项目开始前，先对/server/config/**/setting.json文件进行配置，其中
+
+  setting.json文件中星号 “ * ” 为相关数据库，项目路径等全局配置
+  
+  bin/dev/prod文件夹是在server/server.js中的TARGET_ENV环境变量设定的，若运行机器没有设定TARGET_ENV环境变量，则默认加载dev文件夹下的setting.json。这样设置可以让不同开发人员本机，测试环境，生产环境拥有一套独立的环境配置
