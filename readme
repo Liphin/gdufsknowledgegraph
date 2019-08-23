@@ -8,7 +8,7 @@
 项目采用d3.js进行图数据的渲染，neo4j数据库进行数据存取操作
 
 
-项目的启动文件是server/server.js
+项目的启动文件是server/server.js。 可以通过node server/server.js启动
 
 
 项目开始前，先对/server/config/**/setting.json文件进行配置，其中
